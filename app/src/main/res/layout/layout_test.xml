@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:gravity="bottom">
+
+    <RadioGroup
+        android:id="@+id/tab_menu"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="bottom">
+
+        <RadioButton
+
+            android:id="@+id/rbChat"
+            android:layout_width="2dp"
+            android:layout_gravity="bottom"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:drawableTop="@drawable/tab_selector_weixing"
+            android:gravity="bottom"
+            android:paddingTop="2dp">
+
+        </RadioButton>
+
+        <RadioButton
+
+            android:id="@+id/rbAddress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="false"
+            android:drawableTop="@drawable/tab_selector_tongxunlu"
+            android:gravity="center_horizontal|bottom"
+            android:paddingTop="2dp"
+             >
+
+        </RadioButton>
+
+
+        <RadioButton
+            android:id="@+id/rbFind"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+
+            android:button="@null"
+            android:checked="false"
+            android:drawableTop="@drawable/tab_selector_faxian"
+            android:gravity="center_horizontal|bottom"
+            android:paddingTop="2dp"
+             >
+
+        </RadioButton>
+
+
+        <RadioButton
+            android:id="@+id/rbMe"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="false"
+            android:drawableTop="@drawable/tab_selector_wo"
+            android:gravity="center_horizontal|bottom"
+            android:paddingTop="2dp"
+            >
+
+        </RadioButton>
+
+    </RadioGroup>
+</LinearLayout>
