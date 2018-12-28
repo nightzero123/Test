@@ -43,12 +43,13 @@ public class register extends AppCompatActivity
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 //
+
                 if (validate())
                 {
                     // 检查是否登陆成功
                     try {
                         if (login()) {
-                            Toast.makeText(register.this, "成功", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(register.this, "注册成功", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(register.this, Main2Activity.class);
                             startActivity(intent);
                         } else {
@@ -59,6 +60,7 @@ public class register extends AppCompatActivity
                         e.printStackTrace();
                     }
                 }
+
                 /*
                 SharedPreferences.Editor editor = getSharedPreferences("data", MODE_PRIVATE).edit();
                 editor.putString("name", accountEdit.getText().toString());

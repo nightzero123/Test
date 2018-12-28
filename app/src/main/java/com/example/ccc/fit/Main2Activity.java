@@ -2,6 +2,7 @@ package com.example.ccc.fit;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -11,6 +12,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.util.Log;
@@ -18,6 +21,17 @@ import java.util.ArrayList;
 import java.util.List;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
+
+import com.tencent.connect.UserInfo;
+import com.tencent.connect.auth.QQToken;
+import com.tencent.connect.common.Constants;
+import com.tencent.tauth.IUiListener;
+import com.tencent.tauth.Tencent;
+import com.tencent.tauth.UiError;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import static android.app.PendingIntent.getActivity;
 
@@ -40,10 +54,49 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         Button button1 = findViewById(R.id.rbAddress);
         Button button2 = findViewById(R.id.rbFind);
         Button button3= findViewById(R.id.rbMe);
+        Button button4= findViewById(R.id.title_trainer1);
+
+        Button mapb=findViewById(R.id.map);
+        Button playVideob=findViewById(R.id.playVideo);
+        Button dailb=findViewById(R.id.dail);
+        dailb.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                callPhone("");
+            }
+        });
+
+        mapb.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(Main2Activity.this,mapview.class);
+                startActivity(intent);
+            }
+        });
+
+        playVideob.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(Main2Activity.this,mediaplayer.class);
+                startActivity(intent);
+            }
+        });
+
+        button4.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                android.content.Intent intent = new android.content.Intent(Main2Activity.this, RecyclerViewtest.class);
+                startActivity(intent);
+            }
+        });
         button.setOnClickListener((View.OnClickListener) this);
         button1.setOnClickListener((View.OnClickListener) this);
         button2.setOnClickListener((View.OnClickListener) this);
         button3.setOnClickListener((View.OnClickListener) this);
+
         fragmentup1=new fragementup();
         fragmentup2=new another_fragementup();
         fragmentup3=new another_fragementup1();
@@ -64,16 +117,15 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         //getFragmentManager().findFragmentById(R.id.fragmentup1).getView().findViewById(R.id.recycler_view);
         //RecyclerView tv=getSupportFragmentManager().findFragmentById(R.id.fragmentup1).getView().findViewById(R.id.recycler_view);
         //Fragment fragment = manager.findFragmentById(R.id.up_layout);
+        /*
         initFruit();
         Fragment anfragment=(Fragment)getSupportFragmentManager().findFragmentById(R.id.up_layout);
-        Fragment anfragment=getSupportFragmentManager().findFragmentById(R.id.up_layout);
         RecyclerView tv =(RecyclerView)fragmentup3.getView().findViewById(R.id.recycler_view);
-        RecyclerView tv =anfragment.getView().findViewById(R.id.recycler_view);
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
         tv.setLayoutManager(layoutManager);
         FruitAdapter adapter=new FruitAdapter(fruitlist);
         tv.setAdapter(adapter);
-
+*/
     }
     @Override
     public void onClick(View v)
@@ -141,4 +193,12 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         fruitlist.add(apple);
 
     }
+    public void callPhone(String phoneNum) {
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        Uri data = Uri.parse("tel:" + phoneNum);
+        intent.setData(data);
+        startActivity(intent);
+    }
+
+
 }
